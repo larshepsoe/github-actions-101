@@ -31,6 +31,5 @@ jobs:
         if: success() || failure()
         with:
           name: JEST Tests
-          path: Notes.Api.Test/reports/*.xml
-          reporter: dotnet-trx 
-
+          path: Notes.Api.Test/TestResults/*.xml
+          reporter: dotnet-trx
