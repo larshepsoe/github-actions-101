@@ -30,6 +30,6 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: JEST Tests
-          path: Notes.Api.Test/TestResults/*.xml
+          name: test-results
+          path: Notes.Api.Test/TestResults/*.trx
           reporter: dotnet-trx
