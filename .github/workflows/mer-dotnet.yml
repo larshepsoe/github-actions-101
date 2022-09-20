@@ -24,4 +24,13 @@ jobs:
         run: dotnet build $Notes_Api_Test
 
       - name: "Run tests"
-        run: dotnet test $Notes_Api_Test
+        run: dotnet test --logger trx $Notes_Api_Test
+
+      - name: "Test report"
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: JEST Tests
+          path: Notes.Api.Test/reports/*.xml
+          reporter: dotnet-trx 
+
